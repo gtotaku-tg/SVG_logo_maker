@@ -3,6 +3,40 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { Circle, Triangle, Square } = require('./lib/shapes.js');
 
+// create a function that writes the file
+function writeToFile(fileName, answers) {
+    // create a switch statement that checks the shape the user wants to create
+    switch (answers.shape) {
+        // if the user chooses circle, create a new circle object
+        case 'Circle':
+            const circle = new Circle(answers.height, answers.width, answers.color, answers.textcolor);
+            // write the file to the file system
+            fs.writeFile(fileName, circle.create(), (err) =>
+                err ? console.log(err) : console.log('Success!')
+            );
+            break;
+        // if the user chooses triangle, create a new triangle object
+        case 'Triangle':
+            const triangle = new Triangle(answers.height, answers.width, answers.color, answers.textcolor);
+            // write the file to the file system
+            fs.writeFile(fileName, triangle.create(), (err) =>
+                err ? console.log(err) : console.log('Success!')
+            );
+            break;
+        // if the user chooses square, create a new square object
+        case 'Square':
+            const square = new Square(answers.height, answers.width, answers.color, answers.textcolor);
+            // write the file to the file system
+            fs.writeFile(fileName, square.create(), (err) =>
+                err ? console.log(err) : console.log('Success!')
+            );
+            break;
+        default:
+            console.log('Please choose a shape');
+    }
+}
+
+
 
 // create a function that prompts the user for the shape they want to create
 function promptShape(){
@@ -40,11 +74,13 @@ inquirer
         .then((answers) => {
             // validate if the input is empty, also if is less than 3 characters
             if (input.length > 3 || input.length === 0) {
-                return 'Please enter a name or enter no more than 3 characters';
+                console.log('Please enter a name or enter no more than 3 characters');
+                promptShape();
+            }else{
+            writeToFile('./examples/logo.svg', answers);
             }
-            return true;
-    
-        })
-    }
+        }
+    )
+}
 
     promptShape();
