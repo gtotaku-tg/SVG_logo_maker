@@ -7,7 +7,7 @@ const { Circle, Triangle, Square } = require('./lib/shapes.js');
 function writeToFile(fileName, answers) {
     let svgString = 
     `
-    <svg version="1.1" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
+    <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
         <g>
             ${answers.shape}
         </g>
@@ -27,20 +27,20 @@ function writeToFile(fileName, answers) {
         } else if (answers.shape === "Square") {
             shapeChoice = new Square();
             svgString = `
-                <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                <svg version="1.1" width="400" height="200" xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <rect x="73" y="40" width="160" height="160" fill="${answers.color}"/>
-                        <text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
+                        <text x="150" y="115" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
                     </g>
                 </svg>
             `;
         } else {
             shapeChoice = new Circle();
             svgString = `
-                <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                <svg version="1.1" width="400" height="200" xmlns="http://www.w3.org/2000/svg">
                     <g>
-                        <circle cx="150" cy="115" r="80" fill="${answers.color}"/>
-                        <text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
+                        <circle cx="200" cy="200" r="100" fill="${answers.color}"/>
+                        <text x="160" y="150" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
                     </g>
                 </svg>
             `;
@@ -49,41 +49,6 @@ function writeToFile(fileName, answers) {
         err ? console.log(err) : console.log("Generated logo.svg");
         });
     }
-
-
-
-//     // create a switch statement that checks the shape the user wants to create
-//     switch (answers.shape) {
-//         // if the user chooses circle, create a new circle object
-//         case 'Circle':
-//             const circle = new Circle(answers.text, answers.textcolor, answers.color, answers.shape);
-//             // write the file to the file system
-//             fs.writeFile(fileName, circle.create(), (err) =>
-//                 err ? console.log(err) : console.log('Success!')
-//             );
-//             break;
-//         // if the user chooses triangle, create a new triangle object
-//         case 'Triangle':
-//             const triangle = new Triangle(answers.text, answers.textcolor, answers.color, answers.shape);
-//             // write the file to the file system
-//             fs.writeFile(fileName, triangle.create(), (err) =>
-//                 err ? console.log(err) : console.log('Success!')
-//             );
-//             break;
-//         // if the user chooses square, create a new square object
-//         case 'Square':
-//             const square = new Square(answers.text, answers.textcolor, answers.color, answers.shape);
-//             // write the file to the file system
-//             fs.writeFile(fileName, square.create(), (err) =>
-//                 err ? console.log(err) : console.log('Success!')
-//             );
-//             break;
-//         default:
-//             console.log('Please choose a shape');
-//     }
-// }
-
-
 
 // create a function that prompts the user for the shape they want to create
 function promptShape(){
