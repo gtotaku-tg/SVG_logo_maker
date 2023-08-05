@@ -7,7 +7,7 @@ const { Circle, Triangle, Square } = require('./lib/shapes.js');
 function writeToFile(fileName, answers) {
     let svgString = 
     `
-    <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <svg version="1.1" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
         <g>
             ${answers.shape}
         </g>
@@ -17,30 +17,30 @@ function writeToFile(fileName, answers) {
         if (answers.shape === "Triangle") {
             shapeChoice = new Triangle();
             svgString = `
-                <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                <svg version="1.1" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
                     <g>
-                        <polygon points="150, 18 244, 182 56, 182" fill="${answers.color}"/>
-                        <text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
+                        <polygon points = "150, 18 244, 182 56, 182" fill="${answers.color}"/>
+                        <text x="150" y="130" text-anchor="middle" font-size="60" fill="${answers.textcolor}">${answers.text}</text>
                     </g>
                 </svg>
             `;
         } else if (answers.shape === "Square") {
             shapeChoice = new Square();
             svgString = `
-                <svg version="1.1" width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+                <svg version="1.1" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
                     <g>
-                        <rect x="73" y="40" width="160" height="160" fill="${answers.color}"/>
-                        <text x="150" y="115" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
+                        <rect x="73" y="40" width="200" height="200" fill="${answers.color}"/>
+                        <text x="160" y="150" text-anchor="middle" font-size="90" fill="${answers.textcolor}">${answers.text}</text>
                     </g>
                 </svg>
             `;
         } else {
             shapeChoice = new Circle();
             svgString = `
-                <svg version="1.1" width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+                <svg version="1.1" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <circle cx="200" cy="200" r="100" fill="${answers.color}"/>
-                        <text x="160" y="150" text-anchor="middle" font-size="40" fill="${answers.textColor}">${answers.text}</text>
+                        <text x="200" y="220" text-anchor="middle" font-size="90" fill="${answers.textcolor}">${answers.text}</text>
                     </g>
                 </svg>
             `;
