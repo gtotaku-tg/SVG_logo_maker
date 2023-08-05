@@ -20,7 +20,7 @@ function writeToFile(fileName, answers) {
                 <svg version="1.1" width="500" height="300" xmlns="http://www.w3.org/2000/svg">
                     <g>
                         <polygon points = "150, 18 244, 182 56, 182" fill="${answers.color}"/>
-                        <text x="150" y="130" text-anchor="middle" font-size="60" fill="${answers.textcolor}">${answers.text}</text>
+                        <text x="150" y="130" text-anchor="middle" font-size="40" fill="${answers.textcolor}">${answers.text}</text>
                     </g>
                 </svg>
             `;
